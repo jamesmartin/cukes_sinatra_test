@@ -4,11 +4,13 @@ require File.join(File.dirname(__FILE__), '..', '..', 'lib/cuke_sin.rb')
 
 require 'capybara'
 require 'capybara/cucumber'
+require 'capybara/mechanize/cucumber'
 require 'spec'
 
-CukeSin.set(:environment, :test)
+CukeSin.set(:environment, :development)
 
 Capybara.app = CukeSin
+Capybara.app_host = 'http://localhost:9393' #running shotgun/mongerl
 
 class CukeSinWorld
   include Capybara
