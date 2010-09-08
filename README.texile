@@ -1,0 +1,24 @@
+h1. What!?
+
+This is a living example project that I'm using to experiment with some newish tools and techniques. 
+
+The idea is inspired by the book "Growing Object Oriented Software Guided by Tests":http://growing-object-oriented-software.com/, by Freeman and Pryce, which describes the concept of a 'Walking Skeleton' application. 
+
+The example is a web-application (as fashion dictates), which aggregates data from a certain 'bird-like' social network. 
+
+h2. The Walking Skeleton
+
+The walking skeleton is supposed to be the first thing that you do when starting a new project. It cuts through the vertical slices of your technology stack, forcing you to answer a lot of the really tough questions that normally don't get addressed until it's time to bolt the system together and deploy at the end of a project.  
+
+The challenges in this project are to build our end-to-end acceptance tests in such a way that we exercise the entire stack (as far as possible), from the User's browser, through the Rack/Sinatra environments, authorize with our social network (using OAuth) and then return the results. Obviously we don't want to have any insidious dependencies on things like _the Internet_, in our tests. 
+
+h2. Components
+
+I'm learning Ruby this year, so it seemed only fitting to attempt to do something in this language.
+
+The testing framework consists of acceptance tests written in "Cucumber":http://cukes.info, a test browser is driven by "Capybara":http://github.com/jnicklas/capybara and "Mechanize":http://mechanize.rubyforge.org/mechanize and I've created a _fake social network_, using an extremely simple Sinatra application[1].
+
+The application is a "Sinatra":http://github.com/sinatra/sinatra application, which will eventually (if I ever get it working) be deployed on "Heroku":http://heroku.com
+
+
+fn1. The fake social network will become more complex as time goes by, as I learn the full horrors of the OAuth dance!
