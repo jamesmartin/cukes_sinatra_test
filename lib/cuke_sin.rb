@@ -4,7 +4,7 @@ require 'sinatra/base'
 class CukeSin < Sinatra::Base
 
   configure :development do
-    TWITTER_AUTHORIZE_URL = "http://localhost:4567"
+    TWITTER_AUTHORIZE_URL = "http://api.twitter.com"
   end
 
   get '/' do

@@ -6,6 +6,7 @@ require 'capybara'
 require 'capybara/cucumber'
 require 'capybara/mechanize/cucumber'
 require 'spec'
+require 'fakeweb'
 
 CukeSin.set(:environment, :development)
 
@@ -16,6 +17,15 @@ class CukeSinWorld
   include Capybara
   include Spec::Expectations
   include Spec::Matchers
+
+  CALLBACK_URL = "http://localhost:9393/"
+  SOCIAL_NETWORK_URL = "http://api.twitter.com/" 
+
+  def register_social_network(uri, name)
+    FakeWeb.register_uri(:get, 
+                         uri,
+                         :body => "Hello, Twitter")
+  end
 end
 
 World do

@@ -6,6 +6,7 @@ Feature: Login and authorise
   @mechanize
   Scenario: First time user login
     Given a user, let's call him "Dave"
+    And a Social Network, where Dave's username is "dave" 
     When Dave visits the home page
     Then Dave should be able to "Sign in with Twitter"
 
