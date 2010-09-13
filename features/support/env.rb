@@ -19,12 +19,15 @@ class CukeSinWorld
   include Spec::Matchers
 
   CALLBACK_URL = "http://localhost:9393/"
-  SOCIAL_NETWORK_URL = "http://api.twitter.com/" 
 
   def register_social_network(uri, name)
     FakeWeb.register_uri(:get, 
                          uri,
                          :body => "Hello, Twitter")
+  end
+
+  def authorise_user_for_social_network
+
   end
 end
 

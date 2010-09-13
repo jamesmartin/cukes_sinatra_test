@@ -1,5 +1,4 @@
 SOCIAL_NETWORK_URL = "http://api.twitter.com/" 
-CALLBACK_URL = "http://localhost:9393/"
 
 Given /^a user, let's call him "([^\"]*)"$/ do |name|
   remember_user(name) 
@@ -22,9 +21,14 @@ Then /^Dave should be redirected to Twitter to authorise the application$/ do
 end
 
 Then /^when Dave authorises the application with Twitter$/ do
-  pending # express the regexp above with the code you wish you had
+  authorise_user_for_social_network
 end
 
 Then /^Dave should be able to "([^\"]*)"$/ do |text|
   page.should have_link('Sign in with Twitter') 
 end
+
+Then /^Dave should see "([^\"]*)"$/ do |content|
+  page.should have_content(content) 
+end
+
