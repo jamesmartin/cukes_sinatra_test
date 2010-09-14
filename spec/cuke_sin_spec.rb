@@ -1,18 +1,20 @@
-$:. << File.diranme(__FILE__)
 require 'spec_helper'
 
+#set :environment, :test
 
-describe CukeSin do
+describe 'CukeSin Application' do
 
-  before(:all) do
-    app = 
+  include Rack::Test::Methods
+
+  def app
+    CukeSin 
   end
-  context "Basic homepage action" do
+
     it "shows a link to authorise with Twitter" do
       get '/' do
-        should == "Sign in with Twitter"
+        last_response.should be_ok
+        last_response.body.should == "Sign in with Twitter"
       end
     end
-  end
 
 end
