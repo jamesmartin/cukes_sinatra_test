@@ -4,16 +4,21 @@ require 'spec_helper'
 
 describe 'CukeSin Application' do
 
-  include Rack::Test::Methods
-
   def app
     CukeSin 
+  end
+
+  class Rack::MockResponse
+    def hyperlink_named
+      puts "HELLO from #{self.class}" 
+    end
   end
 
     it "shows a link to authorise with Twitter" do
       get '/' do
         last_response.should be_ok
-        last_response.body.should == "Sign in with Twitter"
+        puts last_response.class
+        last_response.body.should have(1).hyperlink_named "Sign in with Twitter"
       end
     end
 

@@ -8,7 +8,7 @@ class CukeSin < Sinatra::Base
   end
 
   get '/' do
-    #"<a href='/authorise'>Sign in with Twitter</a>"
+    "<a href='/authorise'>Sign in with Twitter</a>"
   end
 
   get '/authorise' do
