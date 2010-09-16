@@ -12,6 +12,6 @@ class CukeSin < Sinatra::Base
   end
 
   get '/authorise' do
-    #redirect(TWITTER_AUTHORIZE_URL)
+    redirect(TWITTER_AUTHORIZE_URL)
   end
 end

@@ -8,17 +8,16 @@ describe 'CukeSin Application' do
     CukeSin 
   end
 
-  class Rack::MockResponse
-    def hyperlink_named
-      puts "HELLO from #{self.class}" 
-    end
-  end
-
     it "shows a link to authorise with Twitter" do
       get '/' do
         last_response.should be_ok
-        puts last_response.class
-        last_response.body.should have(1).hyperlink_named "Sign in with Twitter"
+        last_response.body.should =~ /Sign in with Twitter/
+      end
+    end
+
+    it "redirects unauthorised users to Twitter" do
+      get '/authorise' do
+        last_response.should be_redirect
       end
     end
 
