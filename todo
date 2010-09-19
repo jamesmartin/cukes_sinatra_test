@@ -1,0 +1,4 @@
+Make twitter/social network user-auth page available via FakeWeb
+Figure out what to do about sessions that are already authorised with twitter
+
+Figure out how to inject dependencies into a Sinatra app
