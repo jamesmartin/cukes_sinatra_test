@@ -15,9 +15,11 @@ describe 'CukeSin Application' do
       end
     end
 
+    it "creates a new social network if none is provided" 
+
     it "redirects unauthorised users to social network" do
       social_network = stub('SocialNetwork').as_null_object
-      app.social_network = social_network
+      app.set :social_network, social_network
 
       get '/authorise' do
         last_response.should be_redirect
@@ -29,7 +31,7 @@ describe 'CukeSin Application' do
       social_network.should_receive(:consumer_token).with('test')
       social_network.should_receive(:consumer_secret).with('test')
 
-      app.social_network = social_network
+      app.set :social_network, social_network
 
       get '/authorise' do
       end
